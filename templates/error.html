@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+
+    {% block nav %}
+        {{ super() }}
+    {% endblock %}
+    
+    {% block contents %}
+        <div>
+           <br><br>
+            <h3 class="alert alert-warning text-center"> {{message}} </h3>
+        </div>
+        
+    {% endblock %}
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+    
+{% endblock %}

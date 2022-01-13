@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+
+    {% block nav %}
+        {{ super() }}
+    {% endblock %}
+    <b>
+
+    </b>
+
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <h4 class="text-center">    {{ message }}  </h4>
+        </div>
+    {% endfor %}
+
+    
+    {% block contents %}
+        <br>
+        <h1 class="text-center">Welcome to the Books Searcher</h1>
+        <br>
+        <div>
+            <p>
+                You can search for a book from a list of 5000 books by choosing "All Books" from 
+                the Navigation Bar or search by one of the following categories: ISBN, Title, 
+                Author or Year.
+            </p>
+            <p>
+                Once you have chosen the book, you will be able to see the complete data of its 
+                category and also, the assigned ratings and the reviews made by our users, 
+                as well as the score and number of ratings made by the users of the "goodreads.com" site.
+            </p>
+            <p>
+                In the "Api" section we will show you how to access the data in json format from your own api.
+            </p>
+            <p>    
+                For all this you must enter as a user, which will also allow you to make a rating and 
+                a review of each book.
+            </p>
+        </div>
+        <div>
+        <img src="/static/images/assortedbooks.jpg" width="100%" height="100%" alt="Books"/>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}       
+    
+{% endblock %}

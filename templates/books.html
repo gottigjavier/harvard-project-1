@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+
+    {% block nav %}
+        {{ super() }}
+    {% endblock %}
+
+    {% block contents %}
+
+        <div>
+            <h1 class="text-center p-3 mb-2 bg-info text-white">Books Finding</h1>
+        </div>
+
+        <div>
+            <div class="row p-1 mb-2 bg-secondary text-white">
+                <div class="col text-center">
+                    <h5>Title</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>Author</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>Year</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>ISBN</h5>
+                </div>
+            </div>
+            <ul>
+                {% for book in books %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('book',book_id=book.id) }}">
+                            <div  class="row">
+                                <div class="col-3 text-left">
+                                    {{book.title}}
+                                </div>
+                                <div class="col-3 text-center">
+                                    {{book.author}}
+                                </div>
+                                <div class="col-3 text-center">
+                                    {{book.year}}
+                                </div>
+                                <div class="col-3 text-center">
+                                    {{book.isbn}}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+    
+{% endblock %}

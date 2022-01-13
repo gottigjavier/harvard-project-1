@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+ 
+{% block title %}
+    Api
+{% endblock %}
+
+{% block body %}
+
+    {% block nav %}
+        {{ super() }}
+    {% endblock %}
+
+    {% block contents %}
+        <h1 class="text-center p-3 mb-2 bg-info text-white">Api Request</h1>
+        <br>
+        <h3 class="text-center"><u>Documentation.</u></h3>
+        <br>
+        <p>Your request will be through the ISBN attribute and will have as a response a json object.</p>
+        <br>
+        <h5><strong>* Request form: </strong>res = requests.get('http://URLBOOKSSEARCHER/api/' + ISBN)</h5>
+        <br>
+        <P>URLBOOKSSEARCHER will depend on the domain that this site has at the time (if it is running on your computer it will be "localhost: port" or "127.0.0.1:port").</P>
+        <p>ISBN is a string type variable. If the data is used literally instead of 
+            a variable then it must be enclosed in quotes.</p>
+            <br>
+
+        <div>
+            <h5>Example of response to a real request to the local server:</h5>
+            <p>res = requests.get('http://127.0.0.1:5000/api/' + '074349671X')</p>
+            <br>
+            <p>Json Response:</p>
+            <p> {{ book }}</p>
+            <br><br><br><br>
+        </div>
+    {% endblock %}
+    
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+
+{% endblock %}
